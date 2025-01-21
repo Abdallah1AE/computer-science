@@ -10,24 +10,40 @@
 
     <style>
         body {
-            font-family: 'Playfair Display', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000; /* Black background */
-            color: white; /* White text */
+            font-size: 1rem;
         }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.8rem;
+            }
+        }
+
         header {
-            background-color: #104d81; /* Dark gray */
-            color: white;
-            text-align: center;
-            padding: 2px ;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            transition: background-color 0.5s ease, padding 0.5s ease;
+            width: 100%; /* Full width */
+            padding: 10px; /* Default padding */
+                }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 5px; /* Reduce padding for tablets */
+                font-size: 16px; /* Adjust font size */
+            }
         }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 3px; /* Reduce padding for small screens */
+                font-size: 14px; /* Adjust font size */
+            }
+        }
+
         header.transparent {
             background-color: rgba(255, 255, 255, 0.8); /* Transparent white */
             color: black; /* Black text for contrast */
@@ -92,17 +108,20 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            
             }
         .topic-card {
-            background: #333; /* Medium gray */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-            border-radius: 10px;
-            padding: 20px;
-            max-width: 300px;
-            position: relative;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+            width: 100%; /* Full width on smaller screens */
+            max-width: 300px; /* Maintain a max width */
+            margin: 10px auto; /* Center cards on smaller screens */
+        }
+
+        @media (min-width: 768px) {
+            .topic-card {
+                width: calc(33.33% - 20px); /* Three cards per row */
             }
+        }
+
         .topic-card:hover {
             transform: translateY(-10px); /* Float effect */
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8); /* Elevated shadow on hover */
@@ -143,6 +162,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 30px;
+            flex-wrap: wrap;
             }
         
         .image-content {
@@ -170,6 +190,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 30px;
+            flex-wrap: wrap;
             }
 
         .image-content1 {
@@ -205,6 +226,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 30px;
+            flex-wrap: wrap;
         }
 
         .content-left, 
@@ -220,6 +242,25 @@
             width: 100%; 
             background-color:#104d81;
             }
+
+            @media (max-width: 480px) {
+    .container,
+    .container1,
+    .container2 {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .text-content, .text-content1 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .image-content, .image-content1 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
 
         .majors-heading {
             color: white;
@@ -460,7 +501,7 @@
             const qrCodeElement = document.getElementById("qrcode");
             if (qrCodeElement) {
                 new QRCode(qrCodeElement, {
-                    text: "https://abdallah1ae.github.io/computer-science/Index.html", 
+                    text: "https://abdallah1ae.github.io/computer-science/Index.html", // Replace with your website URL
                     width: 200,
                     height: 200,
                     colorDark: "#000000",
