@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games development</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: #000 url(gamer.jpg) no-repeat center center;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Aligns container to the right */
+            flex: 1;
+            padding-right: 2%; /* Adds padding to the right */
+        }
+
+        .content {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2em;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+            border: 2px solid #333; /* Darker border for PS controller look */
+            border-radius: 15px; /* Rounded corners for a controller-like shape */
+            font-family: 'Arial Black', Gadget, sans-serif; /* Bold font like PS buttons */
+            width: 40%; /* Adjusts width to look like a control panel */
+            height: auto; /* Adjusts height to look like a control panel */
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0 0 10px;
+            color: #00ff00; 
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1em;
+            font-size: 1.1em;
+        }
+
+        .back-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .code-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: #1e1e1e;
+            overflow: hidden;
+        }
+
+        .code-bg pre {
+            color: #ccc;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9em;
+            padding: 20px;
+            line-height: 1.5;
+            overflow-y: scroll;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="index.html" class="back-button">Back to Main</a>
+    <div class="container">
+        
+        <div class="content">
+            <h1>Games developmant</h1>
+
+            <p>It's the second major in our school of computer science.Game Development is the art of creating games and describes the design, development and release of a game. It may involve concept generation, design, build, test and release.</p>
+            <p>Game developer doesn't require being a skilled player, you should be able to analyze a game to determine why it is good or bad. It is the only way you'll be able to develop good gameplay yourself and realize when something isn't working and how to improve it.</p>
+            <p>Game Development can be undertaken by a large Game Development Studio or by a single individual.</p>
+            <P>Also you learn in game development 2D, 3D models as :</P>
+            <P>Simulation: Building realistic models for scientific, engineering, or VR simulations.
+                Building all 3D assets and environments for an open-world game</P>
+        </div>
+    </div>
+</body>
+</html>

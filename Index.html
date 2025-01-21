@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: white; /* White text */
+        }
+        header {
+            background-color: #104d81; /* Dark gray */
+            color: white;
+            text-align: center;
+            padding: 2px ;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.5s ease, padding 0.5s ease;
+        }
+        header.transparent {
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white */
+            color: black; /* Black text for contrast */
+            padding: 1px ; /* Reduce height to half */
+        }
+        .content {
+            margin-top: 80px; /* Add space for the fixed header */
+        }
+        .welcome-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .welcome-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3; /* Dim the background image */
+        }
+        .welcome-section h2 {
+            font-size: 3em;
+            margin: 0;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 1.5s ease-out forwards;
+        }
+        .welcome-section p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 1.5s ease-out 0.5s forwards;
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .topics-section {
+            padding: 55px;
+            background: linear-gradient(to top right, #181454,  #35359f,#0b81c6);
+            text-align: center;
+            opacity: 0.7; /* Adjust this value to control transparency */
+        }
+        .topics-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff; /* White text */
+        }
+        .topics-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            }
+        .topic-card {
+            background: #333; /* Medium gray */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 300px;
+            position: relative;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+            }
+        .topic-card:hover {
+            transform: translateY(-10px); /* Float effect */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8); /* Elevated shadow on hover */
+            }
+        .topic-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+            color: #fff; /* White */
+            }
+        .topic-card p {
+            font-size: 1em;
+            color: #ddd; /* Lighter gray */
+            margin: 0 0 20px;
+            }
+        .topic-card .icon img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease; /* Smooth transform for float effect */
+            border-radius: 15px; /* Rounded edges */
+        }
+        .topic-card:hover .icon img {
+            transform: scale(1.1); /* Slight zoom on hover */
+            border-radius: 15px; /* Rounded edges */
+        }
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #007BFF;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            }
+        .container {
+            background-color: #181717;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            }
+        
+        .image-content {
+            width: 45%; /* Adjust accordingly */
+            }
+
+        .image-content img {
+            max-width: 100%; /* Ensure the image fits within its container  */
+            width: 600px; /* Adjust size */
+            height: auto; /* Maintain the aspect ratio */
+            border-radius: 15px; /* Rounded edges */
+            opacity: 1;
+            transition: opacity 2s ease-in-out; /* Smooth transition */
+            }
+
+        .text-content {
+            width: 50%; /* Adjust accordingly */
+            padding-right: 30px; /* Add some space between the image and text */
+            }
+
+        
+        .container1 {
+            background: linear-gradient(to top right, #181454,  #35359f,#0b81c6);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            }
+
+        .image-content1 {
+            width: 45%; /* Adjust accordingly */
+            }
+
+        .image-content1 img {
+            max-width: 100%; /* Ensure the image fits within its container  */
+            width: 600px; /* Adjust size */
+            height: auto; /* Maintain the aspect ratio */
+            border-radius: 15px; /* Rounded edges */
+            opacity: 1;
+            transition: opacity 2s ease-in-out; /* Smooth transition */
+            }
+
+        .text-content1 {
+            width: 50%; /* Adjust accordingly */
+            padding-left: 30px; /* Add some space between the image and text */
+            }
+
+
+        .map {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .container2 {
+            background: linear-gradient(to top right, #333); /* Fallback gradient */
+            background-image: url('inte.webp'); /* Image background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+        }
+
+        .content-left, 
+        .contact-right {
+            flex: 1; /* Takes up equal space */
+             padding: 20px;
+            }
+
+        .majors-container {
+            text-align: center;
+            margin: 0; 
+            padding: 10px 0; 
+            width: 100%; 
+            background-color:#104d81;
+            }
+
+        .majors-heading {
+            color: white;
+            font-size: 2em;
+}
+            .qr-code-section {
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #124f70;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+        }
+        .qr-code-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1e369e;
+            border-radius: 10px;
+            width: 220px;
+            height: 220px;
+        }
+
+        .contact-form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+        }
+
+        .contact-form label {
+            margin: 10px 0 5px;
+        }
+
+        .contact-form input {
+            padding: 10px;     /* Increasing the padding for larger input fields */
+            margin-bottom: 15px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            padding: 12px 25px; /* Slightly increasing the padding for the button */
+            background-color: #4e4edd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #4141c1;
+        }
+
+        
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 18px;
+            right: 18px;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%; /* Circular shape */
+            overflow: hidden;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .scroll-top-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image fits perfectly inside the circle */
+        }
+        .scroll-top-btn:hover {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+            transition: transform 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <h1>HELLO </h1>
+    </header>
+
+    <div class="content">
+        <section class="welcome-section" id="welcome">
+            <img src="data.jpg" alt="Campus">
+            <h2>Welcome</h2>
+            <p>We are excited to have you here! Explore our website to learn more about us.</p>
+        </section>
+
+        <section class="topics-section" id="topics">
+            <h2>Majors</h2>
+            <div class="topics-container">
+                <div class="topic-card">
+                    <h3>Data Science</h3>
+                    <p>1st major</p>
+                    <div class="icon">
+                        <a href="data-science.html"><img src="data.jpg" alt="Data Science"></a>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <h3>Games Development</h3>
+                    <P>2nd major</P>
+                    <div class="icon">
+                        <a href="games-development.html"><img src="game.jpeg" alt="Games Development"></a>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <h3>Mobile and Cloud Computing</h3>
+                    <P>3rd major</P>
+                    <div class="icon">
+                        <a href="mobile-and-cloud-computing.html"><img src="cloud.webp" alt="Mobile and Cloud Computing"></a>
+                    </div>
+                </div>
+            </div>            
+        </section>
+
+        <div class="majors-container">
+            <h2 class="majors-heading">Jops for each Major </h2>
+          </div>
+
+        <div class="container" style="flex-wrap: wrap;">
+            <title>Jops</title>
+            <div class="text-content" style="flex: 2 1 500px;">
+                <h1>Data Science</h1>
+                <p>1) Software development professionals</p>
+                <p>2) IT business analysts</p>
+                <p>3) Systems designer</p> 
+                <p>4) Data analysts
+                <p>5) IT quality </p>
+                <p>6) Testing professionals</p> 
+                <p>7) Management consultants.</p>
+                <p>8) Business analysts</p>    
+                
+            </div>
+            <div class="image-content" style="flex: 1 1 500px;">
+                <img src="datacic.jpeg" alt="Data Science" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        
+        <div class="container1">
+            <div class="image-content1">
+                <img src="gamecic.jpeg" alt="Image">
+            </div>
+            <div class="text-content1">
+                <h1>Games developmant</h1>
+                <p>It's the second major in our school of computer science.Game Development is the art of creating games and describes the design, development and release of a game. It may involve concept generation, design, build, test and release.</p>
+                <p>Game developer doesn't require being a skilled player, you should be able to analyze a game to determine why it is good or bad. It is the only way you'll be able to develop good gameplay yourself and realize when something isn't working and how to improve it.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="text-content">
+                <h1>Mobile and cloud computing</h1>
+                <p>It's the third major that Mobile and Cloud Computing are booming and gaining more popularity. Mobile computing targets individuals’ needs and interests while Cloud Computing provides hardware, software, and applications over the internet for organizations and governments.</p>
+                <p> The major benefit of Cloud Computing is to release the burden of owning and managing the computing resources. </p>
+            </div>
+            <div class="image-content">
+                <img src="cloudcic.jpg" alt="Workstation with Monitors">
+            </div>
+        </div>
+
+        <section class="contact-section" id="contact">
+            <h2>Contact Us</h2>
+            <div class="map">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093747!2d144.95373531531596!3d-37.8172099797517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf57798ef9e70811c!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2s!4v1602968936491!5m2!1sen!2s"
+                width="100%"
+                    height="300"
+                    frameborder="0"
+                    style="border:0;"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0">
+                </iframe>
+            </div>
+        </section>
+        <div class="container2">
+            <div class="content-left">
+                <h2>Contact Us</h2>
+                <!-- Main Website Link -->
+                <a href="https://www.cic-cairo.edu.eg/" target="_blank" style="color: white; text-decoration: none; font-weight: bold; display: flex; align-items: center; margin-bottom: 15px; font-size: 1.3em;">
+                    <i class="fab fa-canadian-maple-leaf" style="color: #9c0404; margin-right: 10px; font-size: 2em;"></i> CIC
+                </a>
+                <!-- Facebook Link -->
+                <a href="https://www.facebook.com/ciccairo/" target="_blank" style="color: white; text-decoration: none; font-weight: bold; display: flex; align-items: center; margin-bottom: 15px; font-size: 1.3em;">
+                    <i class="fab fa-facebook" style="color: #1877F2; margin-right: 10px; font-size: 2em;"></i>  Facebook 
+                </a>
+                <!-- Instagram Link -->
+                <a href="https://www.instagram.com/cic_cairo/?hl=en" target="_blank" style="color: white; text-decoration: none; font-weight: bold; display: flex; align-items: center; margin-bottom: 15px; font-size: 1.3em;">
+                    <i class="fab fa-instagram" style="color: #C13584; margin-right: 10px; font-size: 2em;"></i> Instagram 
+                </a>
+                <!-- TikTok Link -->
+                <a href="https://www.tiktok.com/@cic.cairo" target="_blank" style="color: white; text-decoration: none; font-weight: bold; display: flex; align-items: center; font-size: 1.3em;">
+                    <i class="fab fa-tiktok" style="color: #1c1717; margin-right: 10px; font-size: 2em;"></i> TikTok 
+                </a>
+                
+                <p style="font-size: 1.3em; display: flex; align-items: center;">
+                    <i class="fas fa-phone" style="color: #2e3588; margin-right: 10px; font-size: 1.5em;"></i> 16242
+                </p>
+            </div>
+            
+            <div class="qr-middle" id="qrcode"></div> <!-- QR code container with frame applied -->
+        
+            <div class="contact-right">
+                <form class="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+        
+                    <label for="school">School Name:</label>
+                    <input type="text" id="school" name="school" required>
+        
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Include QRCode.js library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <script>
+            // Generate the QR code
+            const qrCodeElement = document.getElementById("qrcode");
+            if (qrCodeElement) {
+                new QRCode(qrCodeElement, {
+                    text: "https://example.com", // Replace with your website URL
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        </script>
+        
+
+        <script>
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('transparent');
+            } else {
+                header.classList.remove('transparent');
+            }
+        });
+
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            document.getElementById('welcome').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

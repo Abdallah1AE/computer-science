@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Playfair Display', serif;
+            background: url(datacic.jpeg) no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Section Styling */
+        .content-section {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.4s ease, height 0.4s ease, padding 0.4s ease;
+            overflow: hidden;
+        }
+
+        /* Initially smaller section */
+        .content-section.collapsed {
+            height: 150px;
+            padding: 20px;
+        }
+
+        /* Expanded section */
+        .content-section.expanded {
+            height: 300px;
+            padding: 40px;
+        }
+
+        .content-section h2 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        .content-section p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 1.1em;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease, max-height 0.4s ease;
+        }
+
+        /* Show content when expanded */
+        .content-section.expanded p {
+            opacity: 1;
+            max-height: 500px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4e4edd;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #4141c1;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <body>
+        <a href="index.html" class="back-button">Back to Main Website</a>
+        <div class="content-section collapsed" id="expandable-section">
+            <h2>What is data science?</h2>
+                <p>Data Science at CIC enables you to graduate and work in the field of "Data Science" and "Big Data". Students acquire skills like advanced programming, statistics, data visualization, and machine learning.</p>
+                <p>Our Data Science program provides hands-on experience through cutting-edge projects and collaborations. Students engage in real-world data analysis and develop innovative solutions for complex problems.</p>
+                <p>Graduates are prepared for careers in diverse industries, equipped with the knowledge to leverage data for insightful decision-making and strategic advantage.</p>
+        </div>
+
+    <script>
+        // Add event listener for section click
+        const section = document.getElementById('expandable-section');
+        section.addEventListener('click', () => {
+            section.classList.toggle('expanded');
+            section.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>
