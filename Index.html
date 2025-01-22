@@ -148,34 +148,120 @@
         font-size: 0.9em;
     }
 
-    .container, .container1, .container2 {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 30px;
-    }
+    .container {
+            background-color: #181717;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+        }
+            
+        
+        .image-content {
+            width: 45%; /* Adjust accordingly */
+            }
 
-    .image-content, .image-content1 {
-        width: 45%;
-    }
+        .image-content img {
+            max-width: 100%; /* Ensure the image fits within its container  */
+            width: 600px; /* Adjust size */
+            height: auto; /* Maintain the aspect ratio */
+            border-radius: 15px; /* Rounded edges */
+            opacity: 1;
+            transition: opacity 2s ease-in-out; /* Smooth transition */
 
-    .image-content img, .image-content1 img {
-        max-width: 100%;
-        width: 600px;
-        height: auto;
-        border-radius: 15px;
-    }
+            
+            }
 
-    .text-content, .text-content1 {
-        width: 50%;
-        padding: 30px;
-    }
+        .text-content {
+            width: 50%; /* Adjust accordingly */
+            padding-right: 30px; /* Add some space between the image and text */
+
+            width: 50%;
+            padding: 30px;
+        }
+
+        
+        .container1 {
+            background: linear-gradient(to top right, #181454,  #35359f,#0b81c6);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+        }
+            
+
+        .image-content1 {
+            width: 45%; /* Adjust accordingly */
+            
+            }
+
+        .image-content1 img {
+            max-width: 100%; /* Ensure the image fits within its container  */
+            width: 600px; /* Adjust size */
+            height: auto; /* Maintain the aspect ratio */
+            border-radius: 15px; /* Rounded edges */
+            opacity: 1;
+            transition: opacity 2s ease-in-out; /* Smooth transition */
+
+            
+            }
+
+        .text-content1 {
+            width: 50%; /* Adjust accordingly */
+            padding-left: 30px; /* Add some space between the image and text */
+            width: 50%;
+            padding: 30px;
+            }
+
 
     .map {
         text-align: center;
         margin-top: 20px;
     }
+         .container2 {
+            background: linear-gradient(to top right, #333); /* Fallback gradient */
+            background-image: url('inte.webp'); /* Image background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+        }
+        
 
+        .content-left, 
+        .contact-right {
+            flex: 1; /* Takes up equal space */
+             padding: 20px;
+            }
+
+        .majors-container {
+            text-align: center;
+            margin: 0; 
+            padding: 10px 0; 
+            width: 100%; 
+            background-color:#104d81;
+            }
+
+        .majors-heading {
+            color: white;
+            font-size: 2em;
+}
     .majors-container {
         text-align: center;
         margin: 0;
